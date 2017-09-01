@@ -1,0 +1,72 @@
+matriz uno;
+matriz dos;
+
+
+void setup(){
+size (400,400);
+background(255);
+
+uno= new matriz(5,8,100,50,50);
+dos= new matriz(5,10,100,200,50);
+
+}
+
+void draw(){
+  uno.flecha(); 
+  dos.display();
+  
+  dos.flecha(); 
+  dos.display();
+  
+}
+
+
+
+
+
+
+class matriz{
+    
+  int c,c1,c2,m,x,y;
+
+
+matriz(int c1_, int c2_, int m_, int x_, int y_){
+
+  c1=c1_;
+  c2=c1_*c2_; 
+  m=m_;
+  x=x_;
+  y=y_;
+
+}
+
+
+
+
+
+void flecha(){
+  if((mouseX >= x & mouseX <= x+m)&(mouseY >= y & mouseY <= y+m)){
+  c=c2;
+  }
+  else{
+  c=c1;
+  }
+}
+
+
+
+
+void display(){
+  noStroke();
+  for(int i=0; i<m; i+=c){
+    for(int j=0; j<m; j+=c){
+    fill(random(255),random(255),random(255));
+    rect(x+i,y+j,c,c);
+    }
+  }
+
+}
+
+
+
+}
